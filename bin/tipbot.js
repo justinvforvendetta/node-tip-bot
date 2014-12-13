@@ -2,7 +2,7 @@ var irc    = require('irc')
 , winston  = require('winston')
 , fs       = require('fs')
 , yaml     = require('js-yaml')
-, coin     = require('node-cannacoin')
+, coin     = require('node-dogecoindark')
 , webadmin = require('../lib/webadmin/app');
 
 // check if the config file exists
@@ -190,7 +190,7 @@ client.addListener('message', function(from, channel, message) {
       case 'rain':
         var match = message.match(/^.?rain ([\d\.]+) ?(\d+)?/);
          if(match == null || !match[1]) {
-          client.say(channel, 'Usage: !rain <amount> [max people]');
+          client.say(channel, 'Usage: !rain <amount> [leave blank for all active, or enter number of max people to rain on]');
           return;
         }
 
